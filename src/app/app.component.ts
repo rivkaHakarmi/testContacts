@@ -21,7 +21,7 @@ export class AppComponent implements OnInit {
   ];
   superForm: FormGroup = null;
 
-  constructor(private sharedSrv: SharedService,private validSrv:ValidationService) {
+  constructor(private sharedSrv: SharedService, private validSrv: ValidationService) {
   }
 
   ngOnInit() {
@@ -49,16 +49,16 @@ export class AppComponent implements OnInit {
     const group: any = {};
 
     Object.keys(this.dataJson).forEach(elemnt => {
-      if (this.dataJson[elemnt].form == form ) {
-        let validation =[];
-        if(this.dataJson[elemnt].validators)
-        this.dataJson[elemnt].validators.forEach(valid=>{
-          validation.push(Validators[valid])
-        })
-        if(this.dataJson[elemnt].customValid)
-        this.dataJson[elemnt].validators.forEach(valid=>{
-          validation.push(this.validSrv[valid])
-        })
+      if (this.dataJson[elemnt].form == form) {
+        let validation = [];
+        if (this.dataJson[elemnt].validators)
+          this.dataJson[elemnt].validators.forEach(valid => {
+            validation.push(Validators[valid])
+          })
+        if (this.dataJson[elemnt].customValid)
+          this.dataJson[elemnt].validators.forEach(valid => {
+            validation.push(this.validSrv[valid])
+          })
 
         group[this.dataJson[elemnt].field] = new FormControl('', validation);
 
@@ -68,8 +68,12 @@ export class AppComponent implements OnInit {
     return new FormGroup(group);
   }
 
-  reset(){
-    this.dataJson["injuryType"].isActive=false;
+  printFormData() {
+
+  }
+
+  reset() {
+    this.dataJson["injuryType"].isActive = false;
     this.superForm.reset();
   }
 }
