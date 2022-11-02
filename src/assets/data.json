@@ -77,5 +77,63 @@
         "type": "dropdowns",
         "form": "informationsCentralization",
         "isActive":true
+    },
+    "deliveryFLag": {
+        "name": "מועדף",
+        "field": "deliveryFLag",
+        "validators": null,
+        "type": "checkbox",
+        "form": "contactsList",
+        "isActive":true
+    }
+    ,
+    "name": {
+        "name": "שם איש קשר",
+        "field": "name",
+        "customValid":"hebrew",
+        "validators": null,
+        "type": "text",
+        "form": "contactsList",
+        "isActive":true
+    }
+    ,
+    "type": {
+        "name": "סוג",
+        "field": "type",
+        "validators": null,
+        "type": "dropdowns",
+        "form": "contactsList",
+        "properties":  [
+            { "code": 1, "value": "'מבוטח'" },
+            { "code": 2, "value": "'סוכן'" },
+            { "code": 3, "value": "'בן/בת זוג'" }
+        ],
+        "isActive":true
+    },
+    "adress": {
+        "name": "כתובת",
+        "field": "adress",
+        "validators": null,
+        "type": "text",
+        "form": "contactsList",
+        "isActive":true
+    },
+    "phone": {
+        "name": "טלפון",
+        "field": "phone",
+        "validators": null,
+        "type": "text",
+        "form": "contactsList",
+        "customValid":"phone",
+        "isActive":true
+    },
+    "mail": {
+        "name": "דואר אלקטרוני",
+        "field": "mail",
+        "validators": null,
+        "type": "text",
+        "form": "contactsList",
+        "customValid":"mail",
+        "isActive":true
     }
 }

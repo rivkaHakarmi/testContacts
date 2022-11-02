@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from './shared/services/shared.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { ValidationService } from './shared/services/validation.service';
 
 @Component({
   selector: 'app-root',
@@ -20,7 +21,7 @@ export class AppComponent implements OnInit {
   ];
   superForm: FormGroup = null;
 
-  constructor(private sharedSrv: SharedService) {
+  constructor(private sharedSrv: SharedService,private validSrv:ValidationService) {
   }
 
   ngOnInit() {
@@ -49,11 +50,14 @@ export class AppComponent implements OnInit {
 
     Object.keys(this.dataJson).forEach(elemnt => {
       if (this.dataJson[elemnt].form == form ) {
-        debugger;
         let validation =[];
         if(this.dataJson[elemnt].validators)
         this.dataJson[elemnt].validators.forEach(valid=>{
           validation.push(Validators[valid])
+        })
+        if(this.dataJson[elemnt].customValid)
+        this.dataJson[elemnt].validators.forEach(valid=>{
+          validation.push(this.validSrv[valid])
         })
 
         group[this.dataJson[elemnt].field] = new FormControl('', validation);
