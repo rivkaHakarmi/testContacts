@@ -1,0 +1,38 @@
+<div class="rtl wrapper">
+  <div class="title"> אנשי קשר </div>
+
+  <div>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">מועדף</th>
+          <th scope="col">שם איש קשר</th>
+          <th scope="col">סוג</th>
+          <th scope="col">כתובת</th>
+          <th scope="col">טלפון נייד</th>
+          <th scope="col">דוא"ל</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr  *ngFor="let contact of insurteds | async">
+          <td><input type="checkbox"/></td>
+          <td>{{ contact.name}}</td>
+          <td>{{ contact.name}}</td>
+          <td>{{ contact.adress}}</td>
+          <td>{{ contact.phone}}</td>
+          <td>{{ contact.mail}}</td>
+
+        </tr>
+         <tr *ngIf="addContat">
+          <td><input type="checkbox"/></td>
+          <td><input type="text"/></td>
+
+        </tr>
+      </tbody>
+    </table>
+    <button type="button" (click)="addContat=true" class="linkStyle">הוסף איש קשר</button>
+
+  </div>
+
+
+</div>

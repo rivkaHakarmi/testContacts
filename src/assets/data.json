@@ -1,0 +1,81 @@
+{
+    "superClaimType": {
+        "name": "סוג תביעת על",
+        "field": "superClaimType",
+        "properties":  [
+            { "code": 1, "value": "התביעה אושרה" },
+            { "code": 2, "value": "התביעה נדחתה" },
+            { "code": 4, "value": "טרם התקבלה החלטה" }
+        ],
+        "validators": ["required"],
+        "type": "dropdowns",
+        "form": "informationsCentralization",
+        "isActive":true
+    },
+    "claimDate": {
+        "name": "תאריך אירוע",
+        "field": "claimDate",
+        "properties":  null,
+        "validators": ["required"],
+        "type": "date",
+        "form": "informationsCentralization",
+        "isActive":true
+    },
+    "claimCause": {
+        "name": "סיבת אירוע",
+        "field": "claimCause",
+        "properties":  [
+            { "code": 1, "value": "תאונה" },
+            { "code": 2, "value": "מחלה" },
+            { "code": 5, "value": "תאונת עבודה" },
+            { "code": 6, "value": "אחר" }
+        ],
+        "validators": ["required"],
+        "type": "dropdowns",
+        "form": "informationsCentralization",
+        "isActive":true
+    },
+    "injuryType": {
+        "name": "מהות האירוע",
+        "field": "injuryType",
+        "properties":  [
+            { "code": 1, "value": "אגן" },
+            { "code": 2, "value": "גפיים" },
+            { "code": 5, "value": "ראש" },
+            { "code": 6, "value": "גב" },
+            { "code": 7, "value": "לב" },
+            { "code": 9, "value": "נפש" }
+        ],
+        "validators": null,
+        "type": "dropdowns",
+        "form": "informationsCentralization",
+        "isActive":false
+    },
+   
+    "submitedBy": {
+        "name": "תביעה הוגשה באמצעות",
+        "field": "submitedBy",
+        "properties":  [
+            { "code": 1, "value": "'מבוטח'" },
+            { "code": 2, "value": "'סוכן'" },
+            { "code": 3, "value": "'בן/בת זוג'" }
+        ],
+        "validators": ["required"],
+        "type": "dropdowns",
+        "form": "informationsCentralization",
+        "isActive":true
+    },   
+    "submitionMethod": {
+        "name": "אופן קבלת התביעה",
+        "field": "submitionMethod",
+        "properties":  [
+            { "code": 1, "value": "'דואר'" },
+            { "code": 2, "value": "'דיגיטל'" },
+            { "code": 3, "value": "'פקס'" }
+        ],
+        "validators": null,
+        "type": "dropdowns",
+        "form": "informationsCentralization",
+        "isActive":true
+    }
+}

@@ -1,0 +1,47 @@
+<div class="rtl wrapper">
+  <div class="title">ריכוז מידע בתהליך</div>
+
+  <div>
+    <label>פרטי מבוטח: </label>
+    <div class="row">
+      <label class="col-3">{{inshuredPerson.name}}</label>
+      <label class="col-3">{{inshuredPerson.tz}} </label>
+      <label class="col-3">{{inshuredPerson.age}} </label>
+      <label class="col-3">{{inshuredPerson.adress}} </label>
+    </div>
+    <div class="row">
+      <label class="col-3">שם </label>
+      <label class="col-3">ת"ז </label>
+      <label class="col-3">גיל </label>
+      <label class="col-3">כתובת </label>
+    </div>
+
+
+  </div>
+
+  <div class="box-border" *ngIf="dataJson">
+    <ng-container *ngFor="let control of controlsList">
+      <div [ngSwitch]="control.type" class="mb-2">
+
+        <div *ngSwitchCase="'dropdowns'" class="col-6 d-inline-flex">
+          <label class="col-6" for="control.field">{{control.name}}: </label>
+          <select [formControl]="formControls[control.field]" >
+            <option disabled></option>
+            <option [disabled]="control.isActive==false" *ngFor="let option of control.properties" [id]="option.code">{{option.value}}</option>
+          </select>
+          <app-error-message [control]="formControls[control.field]"></app-error-message>
+        </div>
+
+        <div *ngSwitchCase="'date'" class="col-6 d-inline-flex">
+          <label class="col-6" for="control.field">{{control.name}}: </label>
+          <input type="date" [formControl]="formControls[control.field]" [value]="formControls[control.field].value"
+            [id]="control.field" />
+          <app-error-message [control]="formControls[control.field]"></app-error-message>
+
+        </div>
+
+      </div>
+    </ng-container>
+  </div>
+
+</div>

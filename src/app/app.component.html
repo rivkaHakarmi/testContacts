@@ -1,0 +1,9 @@
+<!-- <router-outlet></router-outlet> -->
+
+<div [formGroup]="superForm" *ngIf="dataJson">
+    <button type="button" class="btn btn-secondary" (click)="reset()">רענון תהליך</button>
+    <app-informations-centralization></app-informations-centralization>
+    <app-contacts-centralization></app-contacts-centralization>
+    <app-contacts-list></app-contacts-list>
+</div>
+<!-- <button type="button" class="btn btn-secondary" [disabled]="!insertStudentForm.valid">המשך</button> -->

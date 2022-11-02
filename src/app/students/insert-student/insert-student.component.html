@@ -1,0 +1,57 @@
+<div class="row">
+  <div class="wrapper">
+
+    <header class="col-12">:הזנת תלמיד</header>
+    <form [formGroup]="insertStudentForm" (ngSubmit)="insertStudent()">
+      <div class="form-row">
+
+        <div class="form-group col-6">
+          <label for="firstNameInput">שם פרטי</label>
+          <input class="form-control" type="text" formControlName="firstName" id="firstNameInput">
+          <app-error-message [control]="insertStudentForm.get('firstName')"></app-error-message>
+
+        </div>
+
+        <div class="form-group col-6">
+          <label for="lastNameInput">שם משפחה</label>
+          <input class="form-control" type="text" formControlName="lastName" id="lastNameInput">
+          <app-error-message [control]="insertStudentForm.get('lastName')"></app-error-message>
+
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-12 date">
+          <label for="birthOfDateInput">תאריך לידה</label>
+          <input class="form-control" type="date" formControlName="dateOfBirth" id="birthOfDateInput">
+          <app-error-message [control]="insertStudentForm.get('dateOfBirth')"></app-error-message>
+
+        </div>
+      </div>
+      <div class="form-row">
+
+        <div class="form-group col-6">
+          <label for="israeliIdInput">מספר זהות</label>
+          <input class="form-control" type="text" formControlName="israeliId" id="israeliIdInput">
+          <app-error-message [control]="insertStudentForm.get('israeliId')"></app-error-message>
+
+        </div>
+
+        <div class="form-group col-6">
+          <label for="cityInput">עיר מגורים</label>
+          <select class="form-control" id="cityInput" formControlName="city">
+            <option *ngFor="let city of cities" [value]="city.CityID">
+              {{city.CityName}}
+            </option>
+          </select>
+          <app-error-message [control]="insertStudentForm.get('city')"></app-error-message>
+
+        </div>
+      </div>
+
+      <button class="students-list-btn btn btn-secondary" [routerLink]="['/students']">לרשימת התלמידים</button>
+      <button type="submit" class="btn btn-secondary" [disabled]="!insertStudentForm.valid">שמור</button>
+
+    </form>
+  </div>
+</div>

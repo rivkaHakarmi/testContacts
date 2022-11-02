@@ -1,0 +1,37 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+/* body {
+    overflow-x: hidden;
+} */
+
+.rtl{
+    direction: rtl !important;
+    text-align: right !important;
+}
+
+.title{
+    background-color: #cbcbcb;
+}
+
+.wrapper{
+    margin-top: 1%;
+    border: 1px #ced4da solid;
+    padding: 2%;
+    margin-left: 2%;
+    flex:0 0 96% ;
+    max-width: 96% ;
+    background-color: #f7f7f7;
+
+}
+
+.d-inline-flex{
+    display: inline-flex;
+}
+
+@media (min-width: 768px){
+    .wrapper{
+        margin-left: 10% !important;
+        flex:0 0 80% !important;
+        max-width: 80% !important;
+    }
+    }
