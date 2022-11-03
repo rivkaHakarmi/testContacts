@@ -31,6 +31,16 @@ export class ContactsListComponent implements OnInit {
     });
 
   }
+
+  setDeliveryFlag(event,contact:insured){
+    debugger;
+    contact.deliveryFlag=event.checked;
+    this.store.dispatch({
+      type: 'UPDATE_INSURED',
+      payload: <insured>contact
+    });
+  }
+
   ngOnInit() {
   }
 

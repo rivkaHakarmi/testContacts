@@ -6,16 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class PhoneFormatPipe implements PipeTransform {
   
   transform(number) {
-    number = number.charAt(0) != 0 ? "0" + number : "" + number;
-  
-    let newStr = "";
-    let i = 0;
-  
-    for (; i < Math.floor(number.length / 2) - 1; i++) {
-      newStr = newStr + number.substr(i * 2, 2) + "-";
-    }
-  
-    return newStr + number.substr(i * 2);
+    return number.slice(0,3)+"-"+number.slice(3,number.length-1);
   }
   
 } 

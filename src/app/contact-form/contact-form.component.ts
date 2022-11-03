@@ -66,6 +66,8 @@ export class ContactFormComponent implements OnInit {
 
   }
 
+  
+
   get formControls() {
     return this.curretForm.controls;
   }

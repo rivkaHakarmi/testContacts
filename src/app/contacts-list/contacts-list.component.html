@@ -15,7 +15,6 @@
       </thead>
       <tbody>
         <tr *ngFor="let contact of insurteds | async; let i=index">
-          {{contact.counterId}}
           <ng-container *ngIf="!contact.isEdit">
             <td><input type="checkbox" /></td>
             <td>{{ contact.name}}</td>
@@ -27,7 +26,7 @@
           <ng-container *ngIf="contact.isEdit">
             <ng-container class="box-border" *ngIf="dataJson">
  
-            <app-contact-form  [formNumber]="i" [contact]="contact" (addContat)="addContatToList()"></app-contact-form>
+            <app-contact-form  [formNumber]="i" [contact]="contact" (addContat)="addContatToList()" (change)="setDeliveryFlag($event)"></app-contact-form>
             </ng-container>
           </ng-container>
 
