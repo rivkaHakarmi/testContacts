@@ -55,12 +55,14 @@ export class AppComponent implements OnInit {
           this.dataJson[elemnt].validators.forEach(valid => {
             validation.push(Validators[valid])
           })
-        if (this.dataJson[elemnt].customValid)
-          this.dataJson[elemnt].validators.forEach(valid => {
-            validation.push(this.validSrv[valid])
+         
+        if (this.dataJson[elemnt].customValid){
+          this.dataJson[elemnt].customValid.forEach(valid => {
+            validation.push(ValidationService[valid])
           })
 
-        group[this.dataJson[elemnt].field] = new FormControl('', validation);
+        }
+        group[this.dataJson[elemnt].field] = new FormControl('',validation);
 
       }
     });

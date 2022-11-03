@@ -90,7 +90,7 @@
     "name": {
         "name": "שם איש קשר",
         "field": "name",
-        "customValid":"hebrew",
+        "customValid":["hebrewValidator"],
         "validators": null,
         "type": "text",
         "form": "contactsList",
@@ -124,7 +124,7 @@
         "validators": null,
         "type": "text",
         "form": "contactsList",
-        "customValid":"phone",
+        "customValid":["phoneNumberValidator"],
         "isActive":true
     },
     "mail": {
@@ -133,7 +133,7 @@
         "validators": null,
         "type": "text",
         "form": "contactsList",
-        "customValid":"mail",
+        "customValid":["emailValidator"],
         "isActive":true
     }
 }

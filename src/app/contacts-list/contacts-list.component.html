@@ -14,8 +14,8 @@
         </tr>
       </thead>
       <tbody>
-        <tr  *ngFor="let contact of insurteds | async">
-          <td><input type="checkbox"/></td>
+        <tr *ngFor="let contact of insurteds | async">
+          <td><input type="checkbox" /></td>
           <td>{{ contact.name}}</td>
           <td>{{ contact.name}}</td>
           <td>{{ contact.adress}}</td>
@@ -23,41 +23,41 @@
           <td>{{ contact.mail}}</td>
 
         </tr>
-         <tr *ngIf="addContat">  <div class="box-border" *ngIf="dataJson">
-          <ng-container *ngFor="let control of controlsList">
-            <ng-container [ngSwitch]="control.type" class="mb-2">
-      
-              <td *ngSwitchCase="'dropdowns'" class="col-6 d-inline-flex">
-                <label class="col-6" for="control.field">{{control.name}}: </label>
-                <select [formControl]="formControls[control.field]" >
-                  <option disabled></option>
-                  <option [disabled]="control.isActive==false" *ngFor="let option of control.properties" [id]="option.code">{{option.value}}</option>
-                </select>
-                <app-error-message [control]="formControls[control.field]"></app-error-message>
-              </td>
-      
-              <td *ngSwitchCase="'text'" class="col-6 d-inline-flex">
-                <label class="col-6" for="control.field">{{control.name}}: </label>
-                <input type="text" [formControl]="formControls[control.field]" [value]="formControls[control.field].value"
-                  [id]="control.field" />
-                <app-error-message [control]="formControls[control.field]"></app-error-message>
-      
-              </td>
+        <tr *ngIf="addContat">
+          <div class="box-border" *ngIf="dataJson">
+            <ng-container *ngFor="let control of controlsList">
+              <ng-container [ngSwitch]="control.type" class="mb-2">
 
-              <td *ngSwitchCase="'checkbox'" class="col-6 d-inline-flex">
-                <label class="col-6" for="control.field">{{control.name}}: </label>
-                <input type="checkbox" [formControl]="formControls[control.field]" [value]="formControls[control.field].value"
-                  [id]="control.field" />
-                <app-error-message [control]="formControls[control.field]"></app-error-message>
-      
-              </td>
-      <td>
-        <button type="button" (click)="addContatToList()" class="linkStyle">+</button>
+                <td *ngSwitchCase="'dropdowns'" class="col-2 d-inline-flex">
+                  <select [formControl]="formControls[control.field]">
+                    <option disabled></option>
+                    <option [disabled]="control.isActive==false" *ngFor="let option of control.properties"
+                      [id]="option.code">{{option.value}}</option>
+                  </select>
+                  <app-error-message [control]="formControls[control.field]"></app-error-message>
+                </td>
 
-      </td>
+                <td *ngSwitchCase="'text'" class="col-2 d-inline-flex">
+                  <input type="text" [formControl]="formControls[control.field]"
+                    [value]="formControls[control.field].value" [id]="control.field" />
+                  <app-error-message [control]="formControls[control.field]"></app-error-message>
+
+                </td>
+
+                <td *ngSwitchCase="'checkbox'" class="col-1 d-inline-flex">
+                  <input type="checkbox" [formControl]="formControls[control.field]"
+                    [value]="formControls[control.field].value" [id]="control.field" />
+                  <app-error-message [control]="formControls[control.field]"></app-error-message>
+
+                </td>
+                
+              </ng-container>
             </ng-container>
-          </ng-container>
-        </div>
+            <td>
+              <button type="button" (click)="addContatToList()" class="linkStyle">+</button>
+
+            </td>
+          </div>
 
         </tr>
       </tbody>

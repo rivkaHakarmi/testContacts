@@ -25,11 +25,6 @@ export class ContactsListComponent implements OnInit {
 
   ngOnInit() {
     this.contactsListForm = this.rootFormGroup.control.get("contactsList") as FormGroup;
-
-    this.contactsListForm.controls.claimCause.valueChanges.subscribe(val => {
-      this.dataJson["injuryType"].isActive = true;
-      this.contactsListForm.controls["injuryType"].setValidators([Validators.required]);
-    })
   }
 
   addContatToList() {
