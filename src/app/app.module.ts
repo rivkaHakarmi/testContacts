@@ -10,7 +10,8 @@ import { InformationsCentralizationComponent } from './informations-centralizati
 import { ContactsCentralizationComponent } from './contacts-centralization/contacts-centralization.component';
 import { ContactsListComponent } from './contacts-list/contacts-list.component';
 import { StoreModule } from '@ngrx/store';
-import { addInsuredReducer } from './reducer';
+import { insuredReducer } from './reducer';
+import { PhoneFormatPipe } from './shared/pipes/phone-format.pipe';
 
 
 
@@ -20,7 +21,8 @@ import { addInsuredReducer } from './reducer';
     ErrorMessageComponent,
     InformationsCentralizationComponent,
     ContactsCentralizationComponent,
-    ContactsListComponent
+    ContactsListComponent,
+    PhoneFormatPipe 
   ],
   imports: [
     BrowserModule,
@@ -28,7 +30,7 @@ import { addInsuredReducer } from './reducer';
     ReactiveFormsModule,
     HttpClientModule,
    
-    StoreModule.forRoot({product: addInsuredReducer})
+    StoreModule.forRoot({insured: insuredReducer})
 
   ],
   providers: [ ValidationService],

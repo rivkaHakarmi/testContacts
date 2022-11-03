@@ -5,7 +5,9 @@ export class insured{
         public adress : string,
         public  age : number,
         public  phone : string,
-        public  mail : string){
+        public  mail : string,
+        public deliveryFlag:boolean,
+        public isEdit:boolean){
         
     }
    

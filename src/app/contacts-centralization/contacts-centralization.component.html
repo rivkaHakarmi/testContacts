@@ -4,12 +4,12 @@
   <div>
     <label>פרטי מבוטח: </label>
     <div class="row">
-      <label class="col-3">מס' אנשי קשר בתהליך : 2  </label>
+      <label class="col-3">מס' אנשי קשר בתהליך : {{count}}  </label>
       <label class="col-3">פעולות אפשריות: </label>
       <div class="col-6 inline">
-        <button type="button" class="btn btn-secondary" (click)="addInsured()">הוספת מבוטח</button>
-        <button type="button" class="btn btn-secondary mr-2">איפוס מלא</button>
-        <button type="button" class="btn btn-secondary mr-2">איפוס אנשי קשר</button>
+        <button type="button" class="btn btn-secondary" (click)="addInsured()" [disabled]="added==true">הוספת מבוטח</button>
+        <button type="button" class="btn btn-secondary mr-2" (click)="resetAll()">איפוס מלא</button>
+        <button type="button" class="btn btn-secondary mr-2" (click)="reset()">איפוס אנשי קשר</button>
       </div>
     </div>
 

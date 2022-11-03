@@ -11,7 +11,7 @@ export class SharedService {
   public dataEvent: Subject<any> = new Subject<any>();
   private contactsList: BehaviorSubject<any> = null;
   public data;
-  public insured:insured=new insured("מריה גין","מבוטח","5765757657","אחוזה, רעננה",35,"0897675645","adsdsd@fyg.com");
+  public insured:insured=new insured("מריה גין","מבוטח","5765757657","אחוזה, רעננה",35,"0897675645","adsdsd@fyg.com",false,true);
 
   constructor(private httpClient: HttpClient) {
 

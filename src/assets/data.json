@@ -78,7 +78,7 @@
         "form": "informationsCentralization",
         "isActive":true
     },
-    "deliveryFLag": {
+    "deliveryFlag": {
         "name": "מועדף",
         "field": "deliveryFLag",
         "validators": null,
@@ -110,9 +110,9 @@
         ],
         "isActive":true
     },
-    "adress": {
-        "name": "כתובת",
-        "field": "adress",
+    "tz": {
+        "name": "תעודת זהות",
+        "field": "tz",
         "validators": null,
         "type": "text",
         "form": "contactsList",

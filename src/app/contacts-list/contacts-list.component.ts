@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { insured } from '../shared/models/insurted.modal';
 import { FormGroupDirective, FormGroup, Validators } from '@angular/forms';
 import { SharedService } from '../shared/services/shared.service';
+import { Action } from 'rxjs/internal/scheduler/Action';
 
 @Component({
   selector: 'app-contacts-list',
@@ -15,7 +16,7 @@ import { SharedService } from '../shared/services/shared.service';
 export class ContactsListComponent implements OnInit {
 
   addContat: boolean;
-  insurteds;
+  insurteds: Observable<insured[]>;
   contactsListForm: FormGroup;
   dataJson = this.sharedSrv.data;
 
@@ -29,10 +30,14 @@ export class ContactsListComponent implements OnInit {
 
   addContatToList() {
     this.addContat = false;
-    let contact: insured
-    //להמשיך למלא את המשתנה
-    //  = new insured(
-    //   this.formControls["name"].value);
+    debugger;
+    let contact: insured = new insured(
+      this.formControls["name"].value, this.formControls["type"].value, this.formControls["tz"].value, "", 0, this.formControls["phone"].value, this.formControls["mail"].value, this.formControls["deliveryFLag"].value, false);
+    this.store.dispatch({
+      type: 'UPDATE_INSURED',
+      payload: <insured>contact
+    });
+
   }
 
   get formControls() {
