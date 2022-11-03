@@ -110,9 +110,9 @@
         ],
         "isActive":true
     },
-    "tz": {
-        "name": "תעודת זהות",
-        "field": "tz",
+    "adress": {
+        "name": "כתובת",
+        "field": "adress",
         "validators": null,
         "type": "text",
         "form": "contactsList",

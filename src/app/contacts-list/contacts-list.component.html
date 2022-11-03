@@ -14,7 +14,8 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let contact of insurteds | async">
+        <tr *ngFor="let contact of insurteds | async; let i=index">
+          {{contact.counterId}}
           <ng-container *ngIf="!contact.isEdit">
             <td><input type="checkbox" /></td>
             <td>{{ contact.name}}</td>
@@ -25,83 +26,16 @@
           </ng-container>
           <ng-container *ngIf="contact.isEdit">
             <ng-container class="box-border" *ngIf="dataJson">
-              <ng-container *ngFor="let control of controlsList">
-                <ng-container [ngSwitch]="control.type" class="mb-2">
-
-                  <td *ngSwitchCase="'dropdowns'" class="col-2">
-                    <select [formControl]="formControls[control.field]">
-                      <option disabled></option>
-                      <option [disabled]="control.isActive==false" *ngFor="let option of control.properties"
-                        [id]="option.code">{{option.value}}</option>
-                    </select>
-                    <app-error-message [control]="formControls[control.field]"></app-error-message>
-                  </td>
-
-                  <td *ngSwitchCase="'text'" class="col-2">
-                    <input type="text" [formControl]="formControls[control.field]" 
-                      [value]="contact[control.field]" [id]="control.field" />
-                    <app-error-message [control]="formControls[control.field]"></app-error-message>
-
-                  </td>
-
-                  <td *ngSwitchCase="'checkbox'" class="col-1">
-                    <input type="checkbox" [formControl]="formControls[control.field]"
-                      [value]="formControls[control.field].value" [id]="control.field" />
-
-                  </td>
-
-                </ng-container>
-              </ng-container>
-              <td>
-                <button type="button" (click)="addContatToList()" class="linkStyle">+</button>
-
-              </td>
+ 
+            <app-contact-form  [formNumber]="i" [contact]="contact" (addContat)="addContatToList()"></app-contact-form>
             </ng-container>
           </ng-container>
 
 
         </tr>
-
-        <!-- <tr *ngIf="addContat">
-          <ng-container class="box-border" *ngIf="dataJson">
-            <ng-container *ngFor="let control of controlsList">
-              <ng-container [ngSwitch]="control.type" class="mb-2">
-
-                <td *ngSwitchCase="'dropdowns'" class="col-2">
-                  <select [formControl]="formControls[control.field]">
-                    <option disabled></option>
-                    <option [disabled]="control.isActive==false" *ngFor="let option of control.properties"
-                      [id]="option.code">{{option.value}}</option>
-                  </select>
-                  <app-error-message [control]="formControls[control.field]"></app-error-message>
-                </td>
-
-                <td *ngSwitchCase="'text'" class="col-2">
-                  <input type="text" [formControl]="formControls[control.field]"
-                    [value]="formControls[control.field].value" [id]="control.field" />
-                  <app-error-message [control]="formControls[control.field]"></app-error-message>
-
-                </td>
-
-                <td *ngSwitchCase="'checkbox'" class="col-1">
-                  <input type="checkbox" [formControl]="formControls[control.field]"
-                    [value]="formControls[control.field].value" [id]="control.field" />
-                  <app-error-message [control]="formControls[control.field]"></app-error-message>
-
-                </td>
-
-              </ng-container>
-            </ng-container>
-            <td>
-              <button type="button" (click)="addContatToList()" class="linkStyle">+</button>
-
-            </td>
-          </ng-container>
-
-        </tr> -->
       </tbody>
     </table>
-    <button type="button" (click)="addContat=true" class="linkStyle">הוסף איש קשר</button>
+    <button type="button" (click)="addContatToList()" class="linkStyle">הוסף איש קשר</button>
 
   </div>
 

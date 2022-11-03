@@ -16,7 +16,6 @@ export class AppComponent implements OnInit {
 
   collapsedTitlesObj = [
     { title: "", component: "informationsCentralization", },
-    { title: "", component: "contactsList", },
     { title: "", component: "contactsCentralization", }
   ];
   superForm: FormGroup = null;

@@ -7,7 +7,8 @@ export class insured{
         public  phone : string,
         public  mail : string,
         public deliveryFlag:boolean,
-        public isEdit:boolean){
+        public isEdit:boolean,
+        public counterId:number=0){
         
     }
    

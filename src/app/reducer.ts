@@ -15,18 +15,21 @@ export function insuredReducer(state: insured[] = [], action) {
   debugger
 
   switch (action.type) {
-    case ADD_INSURED:
+    case ADD_INSURED: {
+      action.payload.counterId = state.length;
       return [...state, action.payload];
+    }
+
 
     case UPDATE_INSURED: {
       debugger;
-      let updateIndex = state.findIndex(x => x.tz == action.payload.tz);
+      let updateIndex = state.findIndex(x => x.counterId == action.payload.counterId);
       return [...state.slice(0, updateIndex), action.payload, ...state.slice(updateIndex + 1, state.length - 1)];
     }
 
     case RESET:
       return [];
-      
+
     case RESET_ALL:
       return [...state.filter(x => x.deliveryFlag)];
 

@@ -14,38 +14,26 @@ import { Action } from 'rxjs/internal/scheduler/Action';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ContactsListComponent implements OnInit {
-
+  dataJson = this.sharedSrv.data;
   addContat: boolean;
   insurteds: Observable<insured[]>;
-  contactsListForm: FormGroup;
-  dataJson = this.sharedSrv.data;
 
   constructor(private store: Store<AppState>, private rootFormGroup: FormGroupDirective, private sharedSrv: SharedService) {
     this.insurteds = this.store.select(state => state.insured);
   }
 
-  ngOnInit() {
-    this.contactsListForm = this.rootFormGroup.control.get("contactsList") as FormGroup;
-  }
-
   addContatToList() {
-    this.addContat = false;
-    debugger;
-    let contact: insured = new insured(
-      this.formControls["name"].value, this.formControls["type"].value, this.formControls["tz"].value, "", 0, this.formControls["phone"].value, this.formControls["mail"].value, this.formControls["deliveryFLag"].value, false);
+    this.addContat=true;
+    let contact: insured = new insured('','', '', "", 0, '', '', false, true);
     this.store.dispatch({
-      type: 'UPDATE_INSURED',
+      type: 'ADD_INSURED',
       payload: <insured>contact
     });
 
   }
-
-  get formControls() {
-    return this.contactsListForm.controls;
+  ngOnInit() {
   }
 
-  get controlsList() {
-    return Object.keys(this.dataJson).map(key => this.dataJson[key]).filter(x => x.form == "contactsList");
-  }
+  
 
 }

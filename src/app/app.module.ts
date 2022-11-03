@@ -12,6 +12,7 @@ import { ContactsListComponent } from './contacts-list/contacts-list.component';
 import { StoreModule } from '@ngrx/store';
 import { insuredReducer } from './reducer';
 import { PhoneFormatPipe } from './shared/pipes/phone-format.pipe';
+import { ContactFormComponent } from './contact-form/contact-form.component';
 
 
 
@@ -22,7 +23,8 @@ import { PhoneFormatPipe } from './shared/pipes/phone-format.pipe';
     InformationsCentralizationComponent,
     ContactsCentralizationComponent,
     ContactsListComponent,
-    PhoneFormatPipe 
+    PhoneFormatPipe,
+    ContactFormComponent 
   ],
   imports: [
     BrowserModule,
