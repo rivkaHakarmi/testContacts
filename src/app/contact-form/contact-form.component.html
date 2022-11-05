@@ -2,8 +2,8 @@
   <ng-container *ngFor="let control of controlsList">
     <ng-container [ngSwitch]="control.type" class="mb-2">
 
-      <td *ngSwitchCase="'dropdowns'" class="col-2">
-        <select [formControl]="formControls[control.field]">
+      <td *ngSwitchCase="'dropdowns'">
+        <select [formControl]="formControls[control.field]"  class="form-control">
           <option disabled></option>
           <option [disabled]="control.isActive==false" *ngFor="let option of control.properties" [id]="option.code">
             {{option.value}}</option>
@@ -11,13 +11,13 @@
         <app-error-message [control]="formControls[control.field]"></app-error-message>
       </td>
 
-      <td *ngSwitchCase="'text'" class="col-2">
-        <input type="text" [formControl]="formControls[control.field]" [id]="control.field" />
+      <td *ngSwitchCase="'text'">
+        <input type="text" [formControl]="formControls[control.field]" [id]="control.field"  class="form-control"/>
         <app-error-message [control]="formControls[control.field]"></app-error-message>
 
       </td>
 
-      <td *ngSwitchCase="'checkbox'" class="col-1">
+      <td *ngSwitchCase="'checkbox'">
         <input type="checkbox" [formControl]="formControls[control.field]" [value]="formControls[control.field].value"
           [id]="control.field" />
 

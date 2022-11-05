@@ -27,11 +27,11 @@ export function insuredReducer(state: insured[] = [], action) {
       return [...state.slice(0, updateIndex), action.payload, ...state.slice(updateIndex + 1, state.length - 1)];
     }
 
-    case RESET:
+    case RESET_ALL:
       return [];
 
-    case RESET_ALL:
-      return [...state.filter(x => x.deliveryFlag)];
+    case RESET:
+      return [...state.filter(x => x.deliveryFlag==true)];
 
     default:
       return state;

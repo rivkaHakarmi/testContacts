@@ -1,6 +1,6 @@
 <!-- <router-outlet></router-outlet> -->
 
-<div [formGroup]="superForm" *ngIf="dataJson">
+<div [formGroup]="superForm" *ngIf="dataJson" class="outer-div">
     <button type="button" class="btn btn-secondary" (click)="reset()">רענון תהליך</button>
     <app-informations-centralization></app-informations-centralization>
     <app-contacts-centralization></app-contacts-centralization>
